@@ -86,6 +86,11 @@
 					type: String
 				},
 				
+				/** Resource additional url parameters. */
+				additionalUrlParams: {
+					type: String
+				},
+
 				/** Internal values. */
 				_values: {
 					type: Array
@@ -208,6 +213,8 @@
 					}
 					this.$.input.remoteUrl = null;
 				}
+
+				if(this.$.input.remoteUrl != null && this.additionalUrlParams != null) this.$.input.remoteUrl += ((this.$.input.remoteUrl.indexOf("?") >= 0 ? "&" : "?") + this.additionalUrlParams);
 			}
 		});
 	</script>
